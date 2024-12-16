@@ -1,0 +1,2 @@
+release: PORT=4000 npm install --prefix client && npm run build --prefix client && rails db:migrate
+api: PORT=3000 bundle exec rails s -e production

@@ -13,4 +13,9 @@ class ApplicationController < ActionController::API
   def render_invalid_response(execption)
     render json: { errors: execption.record.errors.full_messages }, status: :unprocessable_entity
   end
+
+  # to render the React app
+  def index
+    render file: Rails.root.join('client', 'build', 'index.html')
+  end
 end
