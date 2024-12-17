@@ -3,7 +3,8 @@ class ApplicationController < ActionController::API
 
   before_action :authorize
   rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
-
+ 
+  private
   def authorize
     @current_user = User.find_by(id: session[:user_id])
     render json: {errors: ["Not authorized"] },status: :unauthorized unless @current_user
@@ -14,8 +15,4 @@ class ApplicationController < ActionController::API
     render json: { errors: execption.record.errors.full_messages }, status: :unprocessable_entity
   end
 
-  # to render the React app
-  def index
-    render file: Rails.root.join('client', 'build', 'index.html')
-  end
 end

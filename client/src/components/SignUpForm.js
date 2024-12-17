@@ -14,7 +14,8 @@ function SignUpForm({ onLogin }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/signup", {
+    const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL
+    fetch(`${REACT_APP_API_BASE_URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

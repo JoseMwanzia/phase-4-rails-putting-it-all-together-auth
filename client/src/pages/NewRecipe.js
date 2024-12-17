@@ -24,9 +24,9 @@ function NewRecipe({ user }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const RAILS_API = process.env.RAILS_API;
+    const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
     setIsLoading(true);
-    fetch(`${RAILS_API}/recipes`, {
+    fetch(`${REACT_APP_API_BASE_URL}/recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

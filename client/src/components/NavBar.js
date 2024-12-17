@@ -5,8 +5,8 @@ import { Button } from "../styles";
 
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
-    const RAILS_API = process.env.RAILS_API;
-    fetch(`${RAILS_API}/logout`, { method: "DELETE" }).then((r) => {
+    const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL
+    fetch(`${REACT_APP_API_BASE_URL}/logout`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
       }

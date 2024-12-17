@@ -6,10 +6,10 @@ import { Box, Button } from "../styles";
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]);
-  const RAILS_API = process.env.RAILS_API;
-
+  
   useEffect(() => {
-    fetch(`${RAILS_API}/recipes`)
+    const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+    fetch(`${REACT_APP_API_BASE_URL}/recipes`)
       .then((r) => r.json())
       .then(setRecipes);
   }, []);

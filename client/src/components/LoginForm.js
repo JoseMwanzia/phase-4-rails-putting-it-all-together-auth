@@ -8,10 +8,10 @@ function LoginForm({ onLogin }) {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
-    const RAILS_API = process.env.RAILS_API;
+    const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL
     e.preventDefault();
     setIsLoading(true);
-    fetch(`${RAILS_API}/login`, {
+    fetch(`${REACT_APP_API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
