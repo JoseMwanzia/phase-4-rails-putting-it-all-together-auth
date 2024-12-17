@@ -7,10 +7,11 @@ import NewRecipe from "../pages/NewRecipe";
 
 function App() {
   const [user, setUser] = useState(null);
+  const RAILS_API = process.env.RAILS_API;
 
   useEffect(() => {
     // auto-login
-    fetch("/me").then((r) => {
+    fetch(`${RAILS_API}/me`).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
